@@ -1,52 +1,59 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Nav from '../components/Nav';
 
-const cards = [
-    {
-        key: 'knight',
-        name: 'Knight',
-        id: 26000000
-    },
-    {
-        key: 'archers',
-        name: 'Archers',
-        id: 26000001
-    },
-    {
-        key: 'goblins',
-        name: 'Goblins',
-        id: 26000002
-    },
-    {
-        key: 'giant',
-        name: 'Giant',
-        id: 26000003
-    },
-    {
-        key: 'pekka',
-        name: 'P.E.K.K.A',
-        id: 26000004
-    },
-    {
-        key: 'minions',
-        name: 'Minions',
-        id: 26000005
-    },
-    {
-        key: 'balloon',
-        name: 'Balloon',
-        id: 26000006
-    },
-    {
-        key: 'witch',
-        name: 'Witch',
-        id: 26000007
-    }
-];
+import { getCard } from '../utilities/cards';
 
 export default function addDeck() {
+    const [formInputs, setFormInputs] = useState({
+        title: '',
+        link: '',
+        cards: []
+    });
+
+    const handleInputChange = event => {
+        setFormInputs({
+            ...formInputs,
+            [event.target.id]: event.currentTarget.value
+        });
+    };
+
+    const handlePaste = event => {
+        const link = event.clipboardData.getData('Text');
+        const cardIDs = link.match(/\d+/g);
+        if (!cardIDs) {
+            return;
+        }
+
+        const cards = cardIDs.map(cardID => {
+            return getCard(cardID);
+        });
+
+        setFormInputs({
+            ...formInputs,
+            link,
+            cards
+        });
+    };
+
+    const router = useRouter();
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        let decks = JSON.parse(localStorage.getItem('decks'));
+        decks.push({
+            ...formInputs,
+            title: formInputs.title.trim()
+        });
+
+        localStorage.setItem('decks', JSON.stringify(decks));
+
+        router.replace('/');
+    };
+
     return (
         <div>
             <Head>
@@ -59,13 +66,15 @@ export default function addDeck() {
             </Head>
             <div className="container">
                 <Nav />
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="title">title</label>
                     <input
                         className="mb-2"
                         type="text"
                         placeholder="title"
                         id="title"
+                        value={formInputs.title}
+                        onChange={handleInputChange}
                     />
 
                     <label htmlFor="link">link</label>
@@ -74,30 +83,36 @@ export default function addDeck() {
                         type="text"
                         placeholder="link"
                         id="link"
+                        onPaste={handlePaste}
+                        autoComplete="off"
                     />
 
                     <div>cards</div>
-                    <div className="deck-images-container">
-                        {cards.map(card => {
-                            return (
-                                <div className="deck-image">
-                                    <Image
-                                        src={`/cards/${card.key}.png`}
-                                        layout="responsive"
-                                        width="80"
-                                        height="96"
-                                        title={card.name}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    {formInputs.cards.length ? (
+                        <React.Fragment>
+                            <div className="deck-images-container mb-2">
+                                {formInputs.cards.map(card => {
+                                    return (
+                                        <div className="deck-image">
+                                            <Image
+                                                src={`/cards/${card.key}.png`}
+                                                layout="responsive"
+                                                width="80"
+                                                height="96"
+                                                title={card.name}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
 
-                    <div className="t-right">
-                        <button className="form-button bg-green color-white">
-                            add deck
-                        </button>
-                    </div>
+                            <div className="t-right">
+                                <button className="form-button bg-green color-white">
+                                    add deck
+                                </button>
+                            </div>
+                        </React.Fragment>
+                    ) : null}
                 </form>
             </div>
         </div>
