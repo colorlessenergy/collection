@@ -7,10 +7,9 @@
 
 .pushable {
     border-radius: 12px;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
 
     background-color: $dark-blue;
+    color: #000000;
     outline-offset: 4px;
 }
 

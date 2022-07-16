@@ -4,7 +4,12 @@ const FilterDecks = () => {
             <label className="d-none" htmlFor="filter-decks">
                 filter decks
             </label>
-            <input type="text" id="filter-decks" placeholder="giant..." />
+            <input
+                className="my-2"
+                type="text"
+                id="filter-decks"
+                placeholder="giant..."
+            />
         </div>
     );
 };

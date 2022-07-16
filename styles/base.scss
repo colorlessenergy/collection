@@ -27,7 +27,9 @@ nav {
 
 button {
     border: none;
-    padding: 0;
+    padding: 8px 10px;
+    border-radius: 12px;
+    min-width: 120px;
 
     background-color: transparent;
     cursor: pointer;
@@ -38,11 +40,15 @@ button {
 input {
     border: 3px solid #ffffff;
     padding: $space-1;
-    margin: $space-2 0;
     width: 80%;
 
     background-color: transparent;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: $space-1;
 }
