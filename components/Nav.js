@@ -1,13 +1,21 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Nav = () => {
+    const { route } = useRouter();
     return (
         <nav>
-            <div>
-                <button className="pushable">
-                    <span className="front">add deck</span>
-                </button>
-            </div>
+            {route === '/' ? (
+                <Link href="/add-deck">
+                    <a className="pushable">
+                        <span className="front">add deck</span>
+                    </a>
+                </Link>
+            ) : (
+                <Link href="/">
+                    <a>home</a>
+                </Link>
+            )}
 
             <Link href="/settings">
                 <a>
