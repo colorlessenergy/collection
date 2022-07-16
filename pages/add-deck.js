@@ -94,7 +94,7 @@ export default function addDeck() {
                     </div>
 
                     <div className="t-right">
-                        <button className="bg-green color-white">
+                        <button className="form-button bg-green color-white">
                             add deck
                         </button>
                     </div>
