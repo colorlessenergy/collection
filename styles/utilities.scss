@@ -12,8 +12,22 @@
     text-align: right;
 }
 
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .my-2 {
-    margin: $space-2 0;
+    margin-top: $space-2;
+    margin-bottom: $space-2;
+}
+
+.mt-1 {
+    margin-top: $space-1;
+}
+
+.mt-2 {
+    margin-top: $space-2;
 }
 
 .mr-1 {
@@ -30,6 +44,10 @@
 
 .color-white {
     color: #ffffff;
+}
+
+.color-light-red {
+    color: $light-red;
 }
 
 .bg-green {

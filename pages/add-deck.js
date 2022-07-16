@@ -39,14 +39,35 @@ export default function addDeck() {
         });
     };
 
+    const [formValidation, setFormValidation] = useState({
+        title: '',
+        cards: ''
+    });
     const router = useRouter();
     const handleSubmit = event => {
         event.preventDefault();
+        let formValidation = {
+            title: '',
+            cards: ''
+        };
+
+        if (formInputs.title.trim().length === 0) {
+            formValidation.title = 'title is missing';
+        }
+
+        if (formInputs.cards.length !== 8) {
+            formValidation.cards = 'deck has to have 8 cards';
+        }
+
+        if (formValidation.title || formValidation.cards) {
+            return setFormValidation(formValidation);
+        }
 
         let decks = JSON.parse(localStorage.getItem('decks'));
         decks.push({
             ...formInputs,
-            title: formInputs.title.trim()
+            title: formInputs.title.trim(),
+            link: formInputs.link.trim()
         });
 
         localStorage.setItem('decks', JSON.stringify(decks));
@@ -69,15 +90,21 @@ export default function addDeck() {
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="title">title</label>
                     <input
-                        className="mb-2"
                         type="text"
                         placeholder="title"
                         id="title"
                         value={formInputs.title}
                         onChange={handleInputChange}
                     />
+                    {formValidation.title ? (
+                        <p className="my-0 mt-1 color-light-red">
+                            {formValidation.title}
+                        </p>
+                    ) : null}
 
-                    <label htmlFor="link">link</label>
+                    <label className="mt-2" htmlFor="link">
+                        link
+                    </label>
                     <input
                         className="mb-2"
                         type="text"
@@ -105,6 +132,12 @@ export default function addDeck() {
                                     );
                                 })}
                             </div>
+
+                            {formValidation.cards ? (
+                                <p className="my-0 color-light-red">
+                                    {formValidation.cards}
+                                </p>
+                            ) : null}
 
                             <div className="t-right">
                                 <button className="form-button bg-green color-white">
