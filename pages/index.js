@@ -1,5 +1,8 @@
 import Head from 'next/head';
 
+import Nav from '../components/Nav';
+import FilterDecks from '../components/FilterDecks';
+
 export default function Home() {
     return (
         <div>
@@ -11,8 +14,10 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div>
-                <h1>Collection</h1>
+            <div className="container">
+                <Nav />
+
+                <FilterDecks />
             </div>
         </div>
     );

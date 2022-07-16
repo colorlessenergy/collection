@@ -1,0 +1,9 @@
+@use 'base.scss';
+@use 'module.scss';
+@use 'utilities.scss';
+
+@media (min-width: 1200px) {
+    .container {
+        margin: 16px auto;
+    }
+}

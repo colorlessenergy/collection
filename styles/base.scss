@@ -1,0 +1,46 @@
+@use 'variables.scss' as *;
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+
+    background-color: #333333;
+    color: #ffffff;
+    fill: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+    border: 3px solid #ffffff;
+    padding: $space-1;
+    margin: $space-2 0;
+    width: 80%;
+
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
