@@ -8,6 +8,15 @@ const DisplayDecks = () => {
         setDecks(JSON.parse(localStorage.getItem('decks')));
     }, []);
 
+    const handleDeleteDeck = deckID => {
+        let decks = JSON.parse(localStorage.getItem('decks'));
+        const deckIndex = decks.findIndex(deck => deck.ID === deckID);
+        decks.splice(deckIndex, 1);
+        localStorage.setItem('decks', JSON.stringify(decks));
+
+        setDecks(decks);
+    };
+
     return (
         <React.Fragment>
             {decks.map(deck => {
@@ -17,7 +26,9 @@ const DisplayDecks = () => {
                             <div className="font-size-2">{deck.title}</div>
 
                             <div>
-                                <button className="mr-1">
+                                <button
+                                    onClick={() => handleDeleteDeck(deck.ID)}
+                                    className="mr-1">
                                     <svg
                                         className="icon"
                                         xmlns="http://www.w3.org/2000/svg"
