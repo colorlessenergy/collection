@@ -7,7 +7,7 @@ import Nav from '../components/Nav';
 
 import { getCard } from '../utilities/cards';
 
-export default function addDeck() {
+export default function AddDeck() {
     const [formInputs, setFormInputs] = useState({
         title: '',
         link: '',
