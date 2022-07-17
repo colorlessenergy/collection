@@ -21,7 +21,7 @@ const DisplayDecks = () => {
         <React.Fragment>
             {decks.map(deck => {
                 return (
-                    <div>
+                    <div key={deck.ID}>
                         <div className="deck-header">
                             <div className="font-size-2">{deck.title}</div>
 
@@ -53,7 +53,7 @@ const DisplayDecks = () => {
                         <div className="deck-images-container">
                             {deck.cards.map(card => {
                                 return (
-                                    <div className="deck-image">
+                                    <div key={card.id} className="deck-image">
                                         <Image
                                             src={`/cards/${card.key}.png`}
                                             layout="responsive"
