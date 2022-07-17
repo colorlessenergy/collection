@@ -124,9 +124,12 @@ export default function AddDeck() {
                             <div className="deck-images-container mb-2">
                                 {formInputs.cards.map(card => {
                                     return (
-                                        <div className="deck-image">
+                                        <div
+                                            key={card.id}
+                                            className="deck-image">
                                             <Image
                                                 src={`/cards/${card.key}.png`}
+                                                alt={card.name}
                                                 layout="responsive"
                                                 width="80"
                                                 height="96"

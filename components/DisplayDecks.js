@@ -90,6 +90,7 @@ const DisplayDecks = () => {
                                             className="deck-image">
                                             <Image
                                                 src={`/cards/${card.key}.png`}
+                                                alt={card.name}
                                                 layout="responsive"
                                                 width="80"
                                                 height="96"
