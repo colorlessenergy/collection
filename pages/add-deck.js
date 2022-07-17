@@ -22,10 +22,16 @@ export default function AddDeck() {
     };
 
     const handlePaste = event => {
-        const link = event.clipboardData.getData('Text');
-        const cardIDs = link.match(/\d+/g);
+        let link = event.clipboardData.getData('Text');
+        let cardIDs = link.match(/\d+/g);
         if (!cardIDs) {
             return;
+        }
+        if (cardIDs.length > 8) {
+            cardIDs.splice(8);
+            link = `https://link.clashroyale.com/deck/en?deck=${cardIDs.join(
+                ';'
+            )}`;
         }
 
         const cards = cardIDs.map(cardID => {
