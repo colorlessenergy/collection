@@ -1,4 +1,8 @@
-const FilterDecks = () => {
+const FilterDecks = ({ filterValue, setFilterValue }) => {
+    const handleInputChange = event => {
+        setFilterValue(event.currentTarget.value);
+    };
+
     return (
         <div className="t-center">
             <label className="d-none" htmlFor="filter-decks">
@@ -8,6 +12,8 @@ const FilterDecks = () => {
                 className="my-2"
                 type="text"
                 id="filter-decks"
+                value={filterValue}
+                onChange={handleInputChange}
                 placeholder="giant..."
             />
         </div>

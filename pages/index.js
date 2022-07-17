@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import Nav from '../components/Nav';
-import FilterDecks from '../components/FilterDecks';
 import DisplayDecks from '../components/DisplayDecks';
 
 export default function Home() {
@@ -17,8 +16,6 @@ export default function Home() {
             </Head>
             <div className="container">
                 <Nav />
-
-                <FilterDecks />
 
                 <DisplayDecks />
             </div>
