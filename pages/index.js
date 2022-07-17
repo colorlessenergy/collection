@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Collection - clash royale decks</title>
+                <title>collection - clash royale decks</title>
                 <meta
                     name="description"
                     content="collection - clash royale decks"

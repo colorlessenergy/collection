@@ -88,7 +88,7 @@ export default function AddDeck() {
     return (
         <div>
             <Head>
-                <title>Collection - add clash royale deck</title>
+                <title>collection - add clash royale deck</title>
                 <meta
                     name="description"
                     content="collection - clash royale decks"

@@ -7,7 +7,7 @@ export default function Settings() {
     return (
         <div>
             <Head>
-                <title>Collection - settings</title>
+                <title>collection - settings</title>
                 <meta name="description" content="collection - settings" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

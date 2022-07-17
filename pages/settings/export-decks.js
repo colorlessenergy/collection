@@ -26,7 +26,7 @@ export default function ExportDecks() {
     return (
         <div>
             <Head>
-                <title>Collection - export decks</title>
+                <title>collection - export decks</title>
                 <meta name="description" content="collection - export decks" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
