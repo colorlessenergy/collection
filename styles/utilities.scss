@@ -4,6 +4,10 @@
     display: none;
 }
 
+.d-inline-block {
+    display: inline-block;
+}
+
 .t-center {
     text-align: center;
 }
@@ -56,4 +60,16 @@
 
 .bg-green {
     background-color: $green;
+}
+
+.bg-red {
+    background-color: $red;
+}
+
+.bg-light-red {
+    background-color: $light-red;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
