@@ -63,13 +63,17 @@ export default function addDeck() {
             return setFormValidation(formValidation);
         }
 
+        let ID = JSON.parse(localStorage.getItem('ID'));
+        ID += 1;
+        localStorage.setItem('ID', JSON.stringify(ID));
+
         let decks = JSON.parse(localStorage.getItem('decks'));
         decks.push({
+            ID,
             ...formInputs,
             title: formInputs.title.trim(),
             link: formInputs.link.trim()
         });
-
         localStorage.setItem('decks', JSON.stringify(decks));
 
         router.replace('/');

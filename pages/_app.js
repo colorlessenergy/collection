@@ -6,6 +6,10 @@ function MyApp({ Component, pageProps }) {
         if (!localStorage.getItem('decks')) {
             localStorage.setItem('decks', JSON.stringify([]));
         }
+
+        if (!localStorage.getItem('ID')) {
+            localStorage.setItem('ID', JSON.stringify(0));
+        }
     }, []);
     return <Component {...pageProps} />;
 }
