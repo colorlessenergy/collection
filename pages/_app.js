@@ -11,6 +11,26 @@ function MyApp({ Component, pageProps }) {
             localStorage.setItem('ID', JSON.stringify(0));
         }
     }, []);
+
+    useEffect(() => {
+        if (
+            typeof window !== 'undefined' &&
+            'serviceWorker' in navigator &&
+            window.workbox !== undefined
+        ) {
+            const wb = window.workbox;
+            const installNewVersion = () => {
+                wb.addEventListener('controlling', () => {
+                    window.location.reload();
+                });
+
+                wb.messageSkipWaiting();
+            };
+
+            wb.addEventListener('waiting', installNewVersion);
+            wb.register();
+        }
+    }, []);
     return <Component {...pageProps} />;
 }
 
