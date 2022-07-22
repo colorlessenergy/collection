@@ -3,6 +3,10 @@
 @use 'utilities.scss';
 
 @media (min-width: 600px) {
+    input {
+        width: 80%;
+    }
+
     .deck-image {
         width: 20%;
     }
