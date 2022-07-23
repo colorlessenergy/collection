@@ -7,9 +7,7 @@ const Nav = () => {
         <nav>
             {route === '/' ? (
                 <Link href="/add-deck">
-                    <a className="pushable">
-                        <span className="front">add deck</span>
-                    </a>
+                    <a>add deck</a>
                 </Link>
             ) : (
                 <Link href="/">
