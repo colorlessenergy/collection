@@ -4,14 +4,86 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     if (!deck) {
         return (
             <div className="deck-images-container mb-2">
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
-                <div className="deck-image-placeholder mr-1"></div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
+                <div className="deck-image">
+                    <Image
+                        src="/placeholder.png"
+                        alt="placeholder"
+                        layout="responsive"
+                        width="80"
+                        height="96"
+                        title="placeholder"
+                    />
+                </div>
             </div>
         );
     }
