@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Nav from '../components/Nav';
+import DisplayDeck from '../components/DisplayDeck';
 
 import { getCard } from '../utilities/cards';
 
@@ -125,27 +125,15 @@ export default function AddDeck() {
                     />
 
                     <div>cards</div>
+                    <DisplayDeck
+                        deck={
+                            formInputs.cards.length
+                                ? { cards: formInputs.cards }
+                                : null
+                        }
+                    />
                     {formInputs.cards.length ? (
                         <React.Fragment>
-                            <div className="deck-images-container mb-2">
-                                {formInputs.cards.map(card => {
-                                    return (
-                                        <div
-                                            key={card.id}
-                                            className="deck-image">
-                                            <Image
-                                                src={`/cards/${card.key}.png`}
-                                                alt={card.name}
-                                                layout="responsive"
-                                                width="80"
-                                                height="96"
-                                                title={card.name}
-                                            />
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
                             {formValidation.cards ? (
                                 <p className="my-0 color-light-red">
                                     {formValidation.cards}
