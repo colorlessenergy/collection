@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import Head from 'next/head';
 
 import Nav from '../components/Nav';
 import DisplayDeck from '../components/DisplayDeck';
 
 export default function Roll() {
+    const [rolledDeck, setRolledDeck] = useState(null);
+
+    const rollDeck = () => {
+        const decks = JSON.parse(localStorage.getItem('decks'));
+        const randomIndex = Math.floor(Math.random() * decks.length);
+        setRolledDeck(decks[randomIndex]);
+    };
+
     return (
         <div>
             <Head>
@@ -19,9 +28,9 @@ export default function Roll() {
 
                 <h1 className="my-2">roll for random deck</h1>
 
-                <DisplayDeck />
+                <DisplayDeck deck={rolledDeck} />
 
-                <button className="pushable" href="/add-deck">
+                <button onClick={rollDeck} className="pushable mt-2">
                     <span className="front">ROLL</span>
                 </button>
             </div>
