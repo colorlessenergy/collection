@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const DisplayDeck = ({ deck = null, handleDeleteDeck }) => {
+const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     if (!deck) {
         return (
             <div className="deck-images-container mb-2">
@@ -22,19 +22,22 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck }) => {
                 <div className="font-size-2">{deck.title}</div>
 
                 <div>
-                    <button
-                        onClick={() => handleDeleteDeck(deck.ID)}
-                        title="delete deck"
-                        className="mr-1">
-                        <svg
-                            className="icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            height="24">
-                            <path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5zm2-2v2h6V4H9z" />
-                        </svg>
-                    </button>
+                    {handleDeleteDeck ? (
+                        <button
+                            onClick={() => handleDeleteDeck(deck.ID)}
+                            title="delete deck"
+                            className="mr-1">
+                            <svg
+                                className="icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24">
+                                <path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5zm2-2v2h6V4H9z" />
+                            </svg>
+                        </button>
+                    ) : null}
+
                     <a href={deck.link} title="copy deck">
                         <svg
                             className="icon"
