@@ -56,6 +56,7 @@ const DisplayDecks = () => {
                 filteredDecks.map(deck => {
                     return (
                         <DisplayDeck
+                            key={deck.ID}
                             deck={deck}
                             handleDeleteDeck={handleDeleteDeck}
                         />

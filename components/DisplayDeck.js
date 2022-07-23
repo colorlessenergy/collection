@@ -17,7 +17,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck }) => {
     }
 
     return (
-        <div key={deck.ID}>
+        <div>
             <div className="deck-header">
                 <div className="font-size-2">{deck.title}</div>
 
