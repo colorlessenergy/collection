@@ -97,6 +97,9 @@ export default function AddDeck() {
             </Head>
             <div className="container">
                 <Nav />
+
+                <h1 className="my-2">add deck</h1>
+
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="title">title</label>
                     <input
