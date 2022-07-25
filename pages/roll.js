@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Head from 'next/head';
 
 import Nav from '../components/Nav';
@@ -30,14 +30,19 @@ export default function Roll() {
             </Head>
             <div className="container">
                 <Nav />
-
                 <h1 className="my-2">roll for random deck</h1>
 
-                <DisplayDeck deck={rolledDeck} />
+                {JSON.parse(localStorage.getItem('decks')).length <= 1 ? (
+                    <p>at least two decks are needed to roll</p>
+                ) : (
+                    <React.Fragment>
+                        <DisplayDeck deck={rolledDeck} />
 
-                <button onClick={rollDeck} className="pushable mt-2">
-                    <span className="front">ROLL</span>
-                </button>
+                        <button onClick={rollDeck} className="pushable mt-2">
+                            <span className="front">ROLL</span>
+                        </button>
+                    </React.Fragment>
+                )}
             </div>
         </div>
     );
