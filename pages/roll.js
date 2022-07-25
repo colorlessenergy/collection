@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Head from 'next/head';
 
 import Nav from '../components/Nav';
@@ -6,10 +6,15 @@ import DisplayDeck from '../components/DisplayDeck';
 
 export default function Roll() {
     const [rolledDeck, setRolledDeck] = useState(null);
-
+    const previousRollIndex = useRef(null);
     const rollDeck = () => {
         const decks = JSON.parse(localStorage.getItem('decks'));
-        const randomIndex = Math.floor(Math.random() * decks.length);
+        let randomIndex = Math.floor(Math.random() * decks.length);
+        while (previousRollIndex.current === randomIndex) {
+            randomIndex = Math.floor(Math.random() * decks.length);
+        }
+
+        previousRollIndex.current = randomIndex;
         setRolledDeck(decks[randomIndex]);
     };
 
