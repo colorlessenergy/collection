@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 
 import Nav from '../components/Nav';
@@ -18,6 +18,13 @@ export default function Roll() {
         setRolledDeck(decks[randomIndex]);
     };
 
+    const [atLeastTwoDecks, setAtLeastTwoDecks] = useState(false);
+    useEffect(() => {
+        setAtLeastTwoDecks(
+            JSON.parse(localStorage.getItem('decks')).length <= 1
+        );
+    }, []);
+
     return (
         <div>
             <Head>
@@ -32,7 +39,7 @@ export default function Roll() {
                 <Nav />
                 <h1 className="my-2">roll for random deck</h1>
 
-                {JSON.parse(localStorage.getItem('decks')).length <= 1 ? (
+                {atLeastTwoDecks ? (
                     <p>at least two decks are needed to roll</p>
                 ) : (
                     <React.Fragment>
