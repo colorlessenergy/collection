@@ -25,12 +25,6 @@ const DisplayDecks = () => {
 
     const [filterValue, setFilterValue] = useState('');
     const filterDecks = deck => {
-        if (
-            deck.title.toLowerCase().includes(filterValue.trim().toLowerCase())
-        ) {
-            return true;
-        }
-
         for (let i = 0; i < deck.cards.length; i++) {
             if (
                 deck.cards[i].name

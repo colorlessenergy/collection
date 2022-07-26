@@ -88,10 +88,22 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
         );
     }
 
+    let averageElixir =
+        deck.cards.reduce((previousValue, currentValue) => {
+            return previousValue + currentValue.elixir;
+        }, 0) / deck.cards.length;
+
+    if (!Number.isInteger(averageElixir)) {
+        averageElixir = averageElixir.toFixed(1);
+    }
+
     return (
-        <div>
+        <div className="mt-1">
             <div className="deck-header">
-                <div className="font-size-2">{deck.title}</div>
+                <div className="font-size-2">
+                    <span className="font-weight-700">{averageElixir}</span>{' '}
+                    average elixir
+                </div>
 
                 <div>
                     {handleDeleteDeck ? (

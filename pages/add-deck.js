@@ -9,17 +9,9 @@ import { getCard } from '../utilities/cards';
 
 export default function AddDeck() {
     const [formInputs, setFormInputs] = useState({
-        title: '',
         link: '',
         cards: []
     });
-
-    const handleInputChange = event => {
-        setFormInputs({
-            ...formInputs,
-            [event.target.id]: event.currentTarget.value
-        });
-    };
 
     const handlePaste = event => {
         let link = event.clipboardData.getData('Text');
@@ -46,26 +38,18 @@ export default function AddDeck() {
     };
 
     const [formValidation, setFormValidation] = useState({
-        title: '',
         cards: ''
     });
     const router = useRouter();
     const handleSubmit = event => {
         event.preventDefault();
         let formValidation = {
-            title: '',
             cards: ''
         };
 
-        if (formInputs.title.trim().length === 0) {
-            formValidation.title = 'title is missing';
-        }
-
         if (formInputs.cards.length !== 8) {
             formValidation.cards = 'deck has to have 8 cards';
-        }
 
-        if (formValidation.title || formValidation.cards) {
             return setFormValidation(formValidation);
         }
 
@@ -77,7 +61,6 @@ export default function AddDeck() {
         decks.push({
             ID,
             ...formInputs,
-            title: formInputs.title.trim(),
             link: formInputs.link.trim()
         });
         localStorage.setItem('decks', JSON.stringify(decks));
@@ -101,20 +84,6 @@ export default function AddDeck() {
                 <h1 className="my-2">add deck</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="title">title</label>
-                    <input
-                        type="text"
-                        placeholder="title"
-                        id="title"
-                        value={formInputs.title}
-                        onChange={handleInputChange}
-                    />
-                    {formValidation.title ? (
-                        <p className="my-0 mt-1 color-light-red">
-                            {formValidation.title}
-                        </p>
-                    ) : null}
-
                     <label className="mt-2" htmlFor="link">
                         link
                     </label>
