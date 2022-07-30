@@ -40,13 +40,22 @@ const DisplayDecks = () => {
         return false;
     };
 
+    const [sortBy, setSortBy] = useState('low');
+    const onSortByChange = event => {
+        setSortBy(event.currentTarget.value);
+    };
+
     const modifiedDecks = JSON.parse(JSON.stringify(decks))
         .filter(filterDecks)
         .sort((a, b) => {
             const aAverageElixir = getAverageElixir(a.cards);
             const bAverageElixir = getAverageElixir(b.cards);
 
-            return aAverageElixir - bAverageElixir;
+            if (sortBy === 'low') {
+                return aAverageElixir - bAverageElixir;
+            }
+
+            return bAverageElixir - aAverageElixir;
         });
 
     return (
@@ -55,6 +64,35 @@ const DisplayDecks = () => {
                 filterValue={filterValue}
                 setFilterValue={setFilterValue}
             />
+
+            <div className="d-flex">
+                <div className="mr-1">sort by:</div>
+                <input
+                    type="radio"
+                    className="mr-1"
+                    id="low"
+                    name="elixir-cost"
+                    value="low"
+                    onChange={onSortByChange}
+                    checked={sortBy === 'low'}
+                />
+                <label className="mr-1 cursor-pointer" for="low">
+                    low
+                </label>
+
+                <input
+                    type="radio"
+                    className="mr-1"
+                    id="high"
+                    name="elixir-cost"
+                    value="high"
+                    onChange={onSortByChange}
+                    checked={sortBy === 'high'}
+                />
+                <label className="cursor-pointer" for="high">
+                    high
+                </label>
+            </div>
 
             {modifiedDecks.length ? (
                 modifiedDecks.map(deck => {

@@ -3,7 +3,7 @@
 @use 'utilities.scss';
 
 @media (min-width: 600px) {
-    input {
+    input[type='text'] {
         width: 80%;
     }
 

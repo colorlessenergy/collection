@@ -84,7 +84,7 @@ export default function AddDeck() {
                 <h1 className="my-2">add deck</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <label className="mt-2" htmlFor="link">
+                    <label className="d-block mt-2 mb-1" htmlFor="link">
                         link
                     </label>
                     <input
