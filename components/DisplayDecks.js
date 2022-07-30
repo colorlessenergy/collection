@@ -76,7 +76,7 @@ const DisplayDecks = () => {
                     onChange={onSortByChange}
                     checked={sortBy === 'low'}
                 />
-                <label className="mr-1 cursor-pointer" for="low">
+                <label className="mr-1 cursor-pointer" htmlFor="low">
                     low
                 </label>
 
@@ -89,7 +89,7 @@ const DisplayDecks = () => {
                     onChange={onSortByChange}
                     checked={sortBy === 'high'}
                 />
-                <label className="cursor-pointer" for="high">
+                <label className="cursor-pointer" htmlFor="high">
                     high
                 </label>
             </div>
