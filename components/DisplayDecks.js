@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import FilterDecks from './FilterDecks';
 import DisplayDeck from './DisplayDeck';
 
+import { getAverageElixir } from '../utilities/cards';
+
 const DisplayDecks = () => {
     const [decks, setDecks] = useState([]);
 
@@ -37,7 +39,15 @@ const DisplayDecks = () => {
 
         return false;
     };
-    const filteredDecks = decks.filter(filterDecks);
+
+    const modifiedDecks = JSON.parse(JSON.stringify(decks))
+        .filter(filterDecks)
+        .sort((a, b) => {
+            const aAverageElixir = getAverageElixir(a.cards);
+            const bAverageElixir = getAverageElixir(b.cards);
+
+            return aAverageElixir - bAverageElixir;
+        });
 
     return (
         <React.Fragment>
@@ -46,8 +56,8 @@ const DisplayDecks = () => {
                 setFilterValue={setFilterValue}
             />
 
-            {filteredDecks.length ? (
-                filteredDecks.map(deck => {
+            {modifiedDecks.length ? (
+                modifiedDecks.map(deck => {
                     return (
                         <DisplayDeck
                             key={deck.ID}

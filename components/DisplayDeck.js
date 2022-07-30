@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { getAverageElixir } from '../utilities/cards';
+
 const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     if (!deck) {
         return (
@@ -88,14 +90,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
         );
     }
 
-    let averageElixir =
-        deck.cards.reduce((previousValue, currentValue) => {
-            return previousValue + currentValue.elixir;
-        }, 0) / deck.cards.length;
-
-    if (!Number.isInteger(averageElixir)) {
-        averageElixir = averageElixir.toFixed(1);
-    }
+    const averageElixir = getAverageElixir(deck.cards);
 
     return (
         <div className="mt-1">

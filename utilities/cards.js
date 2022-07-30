@@ -652,3 +652,16 @@ const cards = [
 export const getCard = cardID => {
     return cards.find(card => card.id == cardID);
 };
+
+export const getAverageElixir = cards => {
+    let averageElixir =
+        cards.reduce((previousValue, currentValue) => {
+            return previousValue + currentValue.elixir;
+        }, 0) / cards.length;
+
+    if (!Number.isInteger(averageElixir)) {
+        averageElixir = averageElixir.toFixed(1);
+    }
+
+    return averageElixir;
+};
