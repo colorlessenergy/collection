@@ -93,7 +93,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     const averageElixir = getAverageElixir(deck.cards);
 
     return (
-        <div className="mt-1">
+        <div className="mt-1 deck-container">
             <div className="deck-header">
                 <div className="font-size-2">
                     <span className="font-weight-700">{averageElixir}</span>{' '}

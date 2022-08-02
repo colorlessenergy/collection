@@ -95,15 +95,17 @@ const DisplayDecks = () => {
             </div>
 
             {modifiedDecks.length ? (
-                modifiedDecks.map(deck => {
-                    return (
-                        <DisplayDeck
-                            key={deck.ID}
-                            deck={deck}
-                            handleDeleteDeck={handleDeleteDeck}
-                        />
-                    );
-                })
+                <div className="decks-container">
+                    {modifiedDecks.map(deck => {
+                        return (
+                            <DisplayDeck
+                                key={deck.ID}
+                                deck={deck}
+                                handleDeleteDeck={handleDeleteDeck}
+                            />
+                        );
+                    })}
+                </div>
             ) : decks.length && filterValue ? (
                 <div className="t-center font-size-2">nothing was found</div>
             ) : null}
