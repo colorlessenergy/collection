@@ -16,6 +16,9 @@ const Nav = () => {
             )}
 
             <div className="nav-contain">
+                <Link href="/ironman">
+                    <a className="mr-1">ironman</a>
+                </Link>
                 <Link href="/roll">
                     <a className="mr-1">roll deck</a>
                 </Link>
