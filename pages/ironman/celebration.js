@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Nav from '../../components/Nav';
 import Confetti from 'react-confetti';
 
-export default function celebration() {
+export default function Celebration() {
     const [decks, setDecks] = useState([]);
 
     useEffect(() => {
