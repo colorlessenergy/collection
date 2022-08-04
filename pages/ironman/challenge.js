@@ -52,7 +52,11 @@ export default function Ironman() {
                 <DisplayDeck deck={decks[currentDeckIndex]} />
 
                 <button onClick={handleNextDeck} className="pushable mt-2">
-                    <span className="front">next</span>
+                    <span className="front">
+                        {currentDeckIndex + 1 === decks.length
+                            ? 'finish'
+                            : 'next'}
+                    </span>
                 </button>
             </div>
         </div>
