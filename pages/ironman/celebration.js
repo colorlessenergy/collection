@@ -40,18 +40,16 @@ export default function Celebration() {
             <div className="container">
                 <Nav />
 
-                <h1 className="my-2">
-                    congratulations you did the ironman challenge
-                </h1>
+                <h1 className="my-2">congratulations</h1>
 
                 <p>
-                    you are a master of all{' '}
+                    you did the ironman challenge and are a master of all{' '}
                     <span className="font-weight-700">
                         {decks.length} decks
                     </span>
                 </p>
 
-                <div className="t-center">
+                <div className="t-center mt-2">
                     <Image
                         src="/elmo.webp"
                         alt="celebration gif"
