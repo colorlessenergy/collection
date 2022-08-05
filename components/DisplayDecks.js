@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import FilterDecks from './FilterDecks';
 import DisplayDeck from './DisplayDeck';
 
-import { getAverageElixir } from '../utilities/cards';
+import { getAverageElixir, getCard } from '../utilities/cards';
 
 const DisplayDecks = () => {
     const [decks, setDecks] = useState([]);
@@ -28,8 +28,9 @@ const DisplayDecks = () => {
     const [filterValue, setFilterValue] = useState('');
     const filterDecks = deck => {
         for (let i = 0; i < deck.cards.length; i++) {
+            const card = getCard(deck.cards[i]);
             if (
-                deck.cards[i].name
+                card.name
                     .toLowerCase()
                     .includes(filterValue.trim().toLowerCase())
             ) {

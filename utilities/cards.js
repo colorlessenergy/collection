@@ -654,6 +654,10 @@ export const getCard = cardID => {
 };
 
 export const getAverageElixir = cards => {
+    cards = cards.map(cardID => {
+        return getCard(cardID);
+    });
+
     let averageElixir =
         cards.reduce((previousValue, currentValue) => {
             return previousValue + currentValue.elixir;

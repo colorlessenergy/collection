@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { getAverageElixir } from '../utilities/cards';
+import { getAverageElixir, getCard } from '../utilities/cards';
 
 const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     if (!deck) {
@@ -132,7 +132,8 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                 </div>
             </div>
             <div className="deck-images-container">
-                {deck.cards.map(card => {
+                {deck.cards.map(cardID => {
+                    const card = getCard(cardID);
                     return (
                         <div key={card.id} className="deck-image">
                             <Image

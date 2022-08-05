@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import Nav from '../components/Nav';
 import DisplayDeck from '../components/DisplayDeck';
 
-import { getCard } from '../utilities/cards';
-
 export default function AddDeck() {
     const [formInputs, setFormInputs] = useState({
         link: '',
@@ -15,25 +13,21 @@ export default function AddDeck() {
 
     const handlePaste = event => {
         let link = event.clipboardData.getData('Text');
-        let cardIDs = link.match(/\d+/g);
-        if (!cardIDs) {
+        let cardsIDs = link.match(/\d+/g);
+        if (!cardsIDs) {
             return;
         }
-        if (cardIDs.length > 8) {
-            cardIDs.splice(8);
-            link = `https://link.clashroyale.com/deck/en?deck=${cardIDs.join(
+        if (cardsIDs.length > 8) {
+            cardsIDs.splice(8);
+            link = `https://link.clashroyale.com/deck/en?deck=${cardsIDs.join(
                 ';'
             )}`;
         }
 
-        const cards = cardIDs.map(cardID => {
-            return getCard(cardID);
-        });
-
         setFormInputs({
             ...formInputs,
             link,
-            cards
+            cards: cardsIDs
         });
     };
 
