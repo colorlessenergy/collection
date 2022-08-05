@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -62,6 +62,11 @@ export default function AddDeck() {
         router.replace('/');
     };
 
+    const inputRef = useRef(null);
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     return (
         <div>
             <Head>
@@ -82,6 +87,7 @@ export default function AddDeck() {
                         link
                     </label>
                     <input
+                        ref={inputRef}
                         className="mb-2"
                         type="text"
                         placeholder="link"
