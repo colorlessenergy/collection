@@ -5,8 +5,8 @@ import { getAverageElixir, getCard } from '../utilities/cards';
 const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
     if (!deck) {
         return (
-            <div className="deck-images-container mb-2">
-                <div className="deck-image">
+            <div className="card-images-container mb-2">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -16,7 +16,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -26,7 +26,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -36,7 +36,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -46,7 +46,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -56,7 +56,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -66,7 +66,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -76,7 +76,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                         title="placeholder"
                     />
                 </div>
-                <div className="deck-image">
+                <div className="card-image">
                     <Image
                         src="/placeholder.png"
                         alt="placeholder"
@@ -131,11 +131,11 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                     ) : null}
                 </div>
             </div>
-            <div className="deck-images-container">
+            <div className="card-images-container">
                 {deck.cards.map(cardID => {
                     const card = getCard(cardID);
                     return (
-                        <div key={card.id} className="deck-image">
+                        <div key={card.id} className="card-image">
                             <Image
                                 src={`/cards/${card.key}.png`}
                                 alt={card.name}
