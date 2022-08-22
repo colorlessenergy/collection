@@ -10,6 +10,10 @@ function MyApp({ Component, pageProps }) {
         if (!localStorage.getItem('ID')) {
             localStorage.setItem('ID', JSON.stringify(0));
         }
+
+        if (!localStorage.getItem('ironmanCompleted')) {
+            localStorage.setItem('ironmanCompleted', JSON.stringify(0));
+        }
     }, []);
 
     useEffect(() => {

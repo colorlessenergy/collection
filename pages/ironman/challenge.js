@@ -19,6 +19,15 @@ export default function Ironman() {
     const [currentDeckIndex, setCurrentDeckIndex] = useState(0);
     const handleNextDeck = () => {
         if (currentDeckIndex + 1 === decks.length) {
+            let ironmanCompleted = JSON.parse(
+                localStorage.getItem('ironmanCompleted')
+            );
+            ironmanCompleted += 1;
+            localStorage.setItem(
+                'ironmanCompleted',
+                JSON.stringify(ironmanCompleted)
+            );
+
             return router.replace('/ironman/celebration');
         }
 

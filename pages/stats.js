@@ -7,9 +7,12 @@ import { cards, countAmountOfCards } from '../utilities/cards';
 
 export default function Stats() {
     const [cardCount, setCardCount] = useState({});
+    const [ironmanCompleted, setIronmanCompleted] = useState(0);
 
     useEffect(() => {
         setCardCount(countAmountOfCards());
+
+        setIronmanCompleted(localStorage.getItem('ironmanCompleted'));
     }, []);
 
     return (
@@ -26,8 +29,13 @@ export default function Stats() {
                 <Nav />
                 <h1 className="my-2">stats</h1>
 
-                <h2>cards per deck</h2>
+                <h2>ironman</h2>
+                <p>
+                    amount of times completed:{' '}
+                    <span className="font-weight-700">{ironmanCompleted}</span>
+                </p>
 
+                <h2>cards per deck</h2>
                 <div className="card-images-container">
                     {cards
                         .sort((a, b) => {
