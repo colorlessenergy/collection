@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }) {
         if (!localStorage.getItem('ironmanCompleted')) {
             localStorage.setItem('ironmanCompleted', JSON.stringify(0));
         }
+
+        if (!localStorage.getItem('amountOfRolls')) {
+            localStorage.setItem('amountOfRolls', JSON.stringify(0));
+        }
     }, []);
 
     useEffect(() => {

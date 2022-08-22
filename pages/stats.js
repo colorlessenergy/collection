@@ -8,11 +8,14 @@ import { cards, countAmountOfCards } from '../utilities/cards';
 export default function Stats() {
     const [cardCount, setCardCount] = useState({});
     const [ironmanCompleted, setIronmanCompleted] = useState(0);
+    const [amountOfRolls, setAmountOfRolls] = useState(0);
 
     useEffect(() => {
         setCardCount(countAmountOfCards());
 
         setIronmanCompleted(localStorage.getItem('ironmanCompleted'));
+
+        setAmountOfRolls(localStorage.getItem('amountOfRolls'));
     }, []);
 
     return (
@@ -33,6 +36,12 @@ export default function Stats() {
                 <p>
                     amount of times completed:{' '}
                     <span className="font-weight-700">{ironmanCompleted}</span>
+                </p>
+
+                <h2>roll deck</h2>
+                <p>
+                    amount of times rolled:{' '}
+                    <span className="font-weight-700">{amountOfRolls}</span>
                 </p>
 
                 <h2>cards</h2>

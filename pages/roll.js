@@ -16,6 +16,10 @@ export default function Roll() {
 
         previousRollIndex.current = randomIndex;
         setRolledDeck(decks[randomIndex]);
+
+        let amountOfRolls = JSON.parse(localStorage.getItem('amountOfRolls'));
+        amountOfRolls += 1;
+        localStorage.setItem('amountOfRolls', JSON.parse(amountOfRolls));
     };
 
     const [atLeastTwoDecks, setAtLeastTwoDecks] = useState(false);
