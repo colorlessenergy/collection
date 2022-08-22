@@ -23,6 +23,10 @@ const Nav = () => {
                     <a className="mr-1">roll deck</a>
                 </Link>
 
+                <Link href="/stats">
+                    <a className="mr-1">stats</a>
+                </Link>
+
                 <Link href="/settings">
                     <a>
                         <svg

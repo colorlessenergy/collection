@@ -1,4 +1,4 @@
-const cards = [
+export const cards = [
     {
         key: 'knight',
         name: 'Knight',
@@ -668,4 +668,21 @@ export const getAverageElixir = cards => {
     }
 
     return averageElixir;
+};
+
+export const countAmountOfCards = () => {
+    const decks = JSON.parse(localStorage.getItem('decks'));
+    let cardCount = {};
+
+    decks.forEach(deck => {
+        deck.cards.forEach(cardID => {
+            if (cardCount[cardID]) {
+                cardCount[cardID] += 1;
+            } else {
+                cardCount[cardID] = 1;
+            }
+        });
+    });
+
+    return cardCount;
 };
