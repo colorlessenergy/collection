@@ -35,7 +35,7 @@ export default function Stats() {
                     <span className="font-weight-700">{ironmanCompleted}</span>
                 </p>
 
-                <h2>cards per deck</h2>
+                <h2>cards</h2>
                 <div className="card-images-container">
                     {cards
                         .sort((a, b) => {
