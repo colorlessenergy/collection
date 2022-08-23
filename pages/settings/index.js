@@ -18,18 +18,18 @@ export default function Settings() {
 
                 <ul className="my-2 font-size-2">
                     <li className="mb-1">
-                        <Link href="/settings/import-decks">
-                            <a>import decks</a>
+                        <Link href="/settings/import-data">
+                            <a>import data</a>
                         </Link>
                     </li>
                     <li className="mb-1">
-                        <Link href="/settings/export-decks">
-                            <a>export decks</a>
+                        <Link href="/settings/export-data">
+                            <a>export data</a>
                         </Link>
                     </li>
                     <li className="mb-1">
-                        <Link href="/settings/clear-decks">
-                            <a>clear decks</a>
+                        <Link href="/settings/clear-data">
+                            <a>clear data</a>
                         </Link>
                     </li>
                 </ul>
