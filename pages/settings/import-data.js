@@ -9,7 +9,7 @@ import {
     importIronmanCompleted
 } from '../../utilities/localStorage';
 
-export default function ImportDecks() {
+export default function ImportData() {
     const router = useRouter();
     const importData = event => {
         const reader = new FileReader();
@@ -32,19 +32,19 @@ export default function ImportDecks() {
     return (
         <div>
             <Head>
-                <title>collection - import decks</title>
-                <meta name="description" content="collection - import decks" />
+                <title>collection - import data</title>
+                <meta name="description" content="collection - import data" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="container">
                 <Nav />
 
-                <h1 className="my-2">import decks</h1>
+                <h1 className="my-2">import data</h1>
 
                 <label
                     htmlFor="import-data"
                     className="form-button d-inline-block bg-green cursor-pointer">
-                    import decks
+                    import data
                 </label>
                 <input
                     type="file"

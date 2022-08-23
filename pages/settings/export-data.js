@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 
 import Nav from '../../components/Nav';
 
-export default function ExportDecks() {
+export default function ExportData() {
     const router = useRouter();
-    const exportDecks = () => {
+    const exportData = () => {
         const decks = localStorage.getItem('decks');
         const ironmanCompleted = localStorage.getItem('ironmanCompleted');
         const amountOfRolls = localStorage.getItem('amountOfRolls');
@@ -35,18 +35,18 @@ export default function ExportDecks() {
     return (
         <div>
             <Head>
-                <title>collection - export decks</title>
-                <meta name="description" content="collection - export decks" />
+                <title>collection - export data</title>
+                <meta name="description" content="collection - export data" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="container">
                 <Nav />
 
-                <h1 className="my-2">export decks</h1>
+                <h1 className="my-2">export data</h1>
 
                 <button
                     className="form-button bg-light-red"
-                    onClick={exportDecks}>
+                    onClick={exportData}>
                     export
                 </button>
             </div>

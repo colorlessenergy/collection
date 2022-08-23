@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 
 import Nav from '../../components/Nav';
 
-export default function Cleardecks() {
+export default function ClearData() {
     const router = useRouter();
-    const clearDecks = () => {
+    const clearData = () => {
         localStorage.setItem('decks', JSON.stringify([]));
         localStorage.setItem('ID', JSON.stringify(0));
         localStorage.setItem('ironmanCompleted', JSON.stringify(0));
@@ -17,18 +17,18 @@ export default function Cleardecks() {
     return (
         <div>
             <Head>
-                <title>collection - clear decks</title>
-                <meta name="description" content="collection - clear decks" />
+                <title>collection - clear data</title>
+                <meta name="description" content="collection - clear data" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="container">
                 <Nav />
 
-                <h1 className="my-2">clear decks</h1>
+                <h1 className="my-2">clear data</h1>
 
                 <button
                     className="form-button bg-red color-white"
-                    onClick={clearDecks}>
+                    onClick={clearData}>
                     clear
                 </button>
             </div>
