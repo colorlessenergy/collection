@@ -8,6 +8,8 @@ export default function Cleardecks() {
     const clearDecks = () => {
         localStorage.setItem('decks', JSON.stringify([]));
         localStorage.setItem('ID', JSON.stringify(0));
+        localStorage.setItem('ironmanCompleted', JSON.stringify(0));
+        localStorage.setItem('amountOfRolls', JSON.stringify(0));
 
         router.replace('/settings');
     };

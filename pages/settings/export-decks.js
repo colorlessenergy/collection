@@ -7,12 +7,21 @@ export default function ExportDecks() {
     const router = useRouter();
     const exportDecks = () => {
         const decks = localStorage.getItem('decks');
+        const ironmanCompleted = localStorage.getItem('ironmanCompleted');
+        const amountOfRolls = localStorage.getItem('amountOfRolls');
+
+        const data = {
+            decks,
+            ironmanCompleted,
+            amountOfRolls
+        };
 
         const filename = 'clash-royale-decks.json';
         let anchorElement = document.createElement('a');
         anchorElement.setAttribute(
             'href',
-            'data:text/plain;charset=utf-8,' + encodeURIComponent(decks)
+            'data:text/plain;charset=utf-8,' +
+                encodeURIComponent(JSON.stringify(data))
         );
         anchorElement.setAttribute('download', filename);
         anchorElement.style.display = 'none';

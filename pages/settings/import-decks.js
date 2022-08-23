@@ -3,27 +3,21 @@ import { useRouter } from 'next/router';
 
 import Nav from '../../components/Nav';
 
+import {
+    importAmountOfRolls,
+    importDecks,
+    importIronmanCompleted
+} from '../../utilities/localStorage';
+
 export default function ImportDecks() {
     const router = useRouter();
-    const importDecks = event => {
+    const importData = event => {
         const reader = new FileReader();
         reader.onload = e => {
-            let importedDecks = JSON.parse(e.target.result);
-            let ID = JSON.parse(localStorage.getItem('ID'));
-            importedDecks = importedDecks.map(deck => {
-                ID += 1;
-                return {
-                    ...deck,
-                    ID
-                };
-            });
-            localStorage.setItem('ID', ID);
-
-            const decksFromLocalStorage = JSON.parse(
-                localStorage.getItem('decks')
-            );
-            const combineDecks = [...decksFromLocalStorage, ...importedDecks];
-            localStorage.setItem('decks', JSON.stringify(combineDecks));
+            const data = JSON.parse(e.target.result);
+            importDecks(JSON.parse(data.decks));
+            importIronmanCompleted(JSON.parse(data.ironmanCompleted));
+            importAmountOfRolls(JSON.parse(data.amountOfRolls));
 
             router.replace('/settings');
         };
@@ -56,7 +50,7 @@ export default function ImportDecks() {
                     type="file"
                     id="import-data"
                     accept=".json"
-                    onChange={importDecks}
+                    onChange={importData}
                     onClick={setValueToNull}
                     className="d-none"
                 />
