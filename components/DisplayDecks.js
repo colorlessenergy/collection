@@ -9,10 +9,6 @@ const DisplayDecks = () => {
     const [decks, setDecks] = useState([]);
 
     useEffect(() => {
-        if (!localStorage.getItem('decks')) {
-            localStorage.setItem('decks', JSON.stringify([]));
-        }
-
         setDecks(JSON.parse(localStorage.getItem('decks')));
     }, []);
 
