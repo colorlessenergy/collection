@@ -686,3 +686,14 @@ export const countAmountOfCards = () => {
 
     return cardCount;
 };
+
+export const checkIfDeckExists = cardIDs => {
+    const decks = JSON.parse(localStorage.getItem('decks'));
+    for (let i = 0; i < decks.length; i++) {
+        const deck = decks[i];
+
+        if (cardIDs.sort().join('') === deck.cards.sort().join('')) {
+            return true;
+        }
+    }
+};

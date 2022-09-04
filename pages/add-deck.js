@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import Nav from '../components/Nav';
 import DisplayDeck from '../components/DisplayDeck';
 
+import { checkIfDeckExists } from '../utilities/cards';
+
 export default function AddDeck() {
     const [formInputs, setFormInputs] = useState({
         link: '',
@@ -12,6 +14,7 @@ export default function AddDeck() {
     });
 
     const handlePaste = event => {
+        setFormValidation({ cards: '' });
         let link = event.clipboardData.getData('Text');
         let cardsIDs = link.match(/\d+/g);
         if (!cardsIDs) {
@@ -22,6 +25,29 @@ export default function AddDeck() {
             link = `https://link.clashroyale.com/deck/en?deck=${cardsIDs.join(
                 ';'
             )}`;
+        }
+        let formValidation = {
+            cards: ''
+        };
+        if (cardsIDs.length !== 8) {
+            formValidation.cards = 'deck has to have 8 cards';
+
+            setFormInputs({
+                ...formInputs,
+                cards: cardsIDs
+            });
+
+            return setFormValidation(formValidation);
+        }
+        if (checkIfDeckExists(cardsIDs)) {
+            formValidation.cards = 'that deck exists';
+
+            setFormInputs({
+                ...formInputs,
+                cards: cardsIDs
+            });
+
+            return setFormValidation(formValidation);
         }
 
         setFormInputs({
@@ -37,15 +63,6 @@ export default function AddDeck() {
     const router = useRouter();
     const handleSubmit = event => {
         event.preventDefault();
-        let formValidation = {
-            cards: ''
-        };
-
-        if (formInputs.cards.length !== 8) {
-            formValidation.cards = 'deck has to have 8 cards';
-
-            return setFormValidation(formValidation);
-        }
 
         let ID = JSON.parse(localStorage.getItem('ID'));
         ID += 1;
@@ -104,14 +121,15 @@ export default function AddDeck() {
                                 : null
                         }
                     />
-                    {formInputs.cards.length ? (
-                        <React.Fragment>
-                            {formValidation.cards ? (
-                                <p className="my-0 color-light-red">
-                                    {formValidation.cards}
-                                </p>
-                            ) : null}
 
+                    {formValidation.cards ? (
+                        <p className="my-0 color-light-red">
+                            {formValidation.cards}
+                        </p>
+                    ) : null}
+
+                    {formInputs.cards.length && !formValidation.cards ? (
+                        <React.Fragment>
                             <div className="t-right">
                                 <button className="form-button bg-green color-white">
                                     add deck
