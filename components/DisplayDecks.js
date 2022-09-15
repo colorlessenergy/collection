@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import FilterDecks from './FilterDecks';
 import DisplayDeck from './DisplayDeck';
@@ -91,6 +92,8 @@ const DisplayDecks = () => {
             return bAverageElixir - aAverageElixir;
         });
 
+    const [parent] = useAutoAnimate();
+
     return (
         <React.Fragment>
             <FilterDecks
@@ -133,19 +136,23 @@ const DisplayDecks = () => {
                 </label>
             </div>
 
-            {modifiedDecks.length ? (
-                modifiedDecks.map(deck => {
-                    return (
-                        <DisplayDeck
-                            key={deck.ID}
-                            deck={deck}
-                            handleDeleteDeck={handleDeleteDeck}
-                        />
-                    );
-                })
-            ) : decks.length && filterValue ? (
-                <div className="t-center font-size-2">nothing was found</div>
-            ) : null}
+            <div ref={parent}>
+                {modifiedDecks.length ? (
+                    modifiedDecks.map(deck => {
+                        return (
+                            <DisplayDeck
+                                key={deck.ID}
+                                deck={deck}
+                                handleDeleteDeck={handleDeleteDeck}
+                            />
+                        );
+                    })
+                ) : decks.length && filterValue ? (
+                    <div className="t-center font-size-2">
+                        nothing was found
+                    </div>
+                ) : null}
+            </div>
         </React.Fragment>
     );
 };
