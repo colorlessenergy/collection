@@ -107,7 +107,7 @@ const DisplayDeck = ({ deck = null, handleDeleteDeck = null }) => {
                             title="delete deck"
                             className="mr-1">
                             <svg
-                                className="icon"
+                                className="icon fill-red"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 width="24"
