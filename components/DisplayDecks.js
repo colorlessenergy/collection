@@ -98,30 +98,36 @@ const DisplayDecks = () => {
                 setFilterValue={setFilterValue}
             />
 
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
                 <div className="mr-1">sort by:</div>
                 <input
                     type="radio"
-                    className="mr-1"
+                    className="d-none"
                     id="low"
                     name="elixir-cost"
                     value="low"
                     onChange={onSortByChange}
                     checked={sortBy === 'low'}
                 />
+                <label
+                    className="mr-1 cursor-pointer radio"
+                    htmlFor="low"></label>
                 <label className="mr-1 cursor-pointer" htmlFor="low">
                     low
                 </label>
 
                 <input
                     type="radio"
-                    className="mr-1"
+                    className="d-none"
                     id="high"
                     name="elixir-cost"
                     value="high"
                     onChange={onSortByChange}
                     checked={sortBy === 'high'}
                 />
+                <label
+                    className="mr-1 cursor-pointer radio"
+                    htmlFor="high"></label>
                 <label className="cursor-pointer" htmlFor="high">
                     high
                 </label>

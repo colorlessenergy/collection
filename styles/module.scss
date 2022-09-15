@@ -69,3 +69,17 @@
     min-width: 120px;
     padding: 8px 10px;
 }
+
+input[type='radio'] + .radio {
+    appearance: none;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    height: 16px;
+    width: 16px;
+
+    transition: background-color 0.25s ease;
+}
+
+input[type='radio']:checked + .radio {
+    background-color: #ffffff;
+}
