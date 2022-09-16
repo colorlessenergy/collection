@@ -64,6 +64,10 @@ export default function AddDeck() {
     const handleSubmit = event => {
         event.preventDefault();
 
+        if (!formInputs.cards.length || !formInputs.link) {
+            return;
+        }
+
         let ID = JSON.parse(localStorage.getItem('ID'));
         ID += 1;
         localStorage.setItem('ID', JSON.stringify(ID));
