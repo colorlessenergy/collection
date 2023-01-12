@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -33,13 +33,13 @@ export default function Stats() {
                 <h1 className="my-2">stats</h1>
 
                 <h2>ironman</h2>
-                <p>
+                <p className="font-size-16">
                     amount of times completed:{' '}
                     <span className="font-weight-700">{ironmanCompleted}</span>
                 </p>
 
                 <h2>roll deck</h2>
-                <p>
+                <p className="font-size-16">
                     amount of times rolled:{' '}
                     <span className="font-weight-700">{amountOfRolls}</span>
                 </p>
