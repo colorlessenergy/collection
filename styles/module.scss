@@ -61,7 +61,24 @@
 }
 
 .card-image {
+    position: relative;
     width: 25%;
+}
+
+.card-number {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 9%;
+    left: 9%;
+    z-index: 1;
+
+    background-color: #222222;
+    font-size: 14px;
 }
 
 .form-button {

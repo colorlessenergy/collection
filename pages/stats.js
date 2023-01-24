@@ -56,7 +56,7 @@ export default function Stats() {
                         .map(card => {
                             return (
                                 <div key={card.id} className="card-image mb-1">
-                                    <div className="t-center">
+                                    <div className="card-number">
                                         {cardCount[card.id]
                                             ? cardCount[card.id]
                                             : 0}
