@@ -7,7 +7,11 @@ const Nav = () => {
         <nav>
             {route === '/' ? (
                 <Link href="/add-deck">
-                    <a>add deck</a>
+                    <a
+                        className="form-button bg-green t-center"
+                        title="add deck">
+                        add deck
+                    </a>
                 </Link>
             ) : (
                 <Link href="/">
